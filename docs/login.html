@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlogToday</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+  <style>
+    /* Header Styling */
+    header {
+      width: 100%;
+      background-color: #131f33;
+      color: white;
+      padding: 20px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    header .back-btn {
+      color: white;
+      font-size: 28px;
+      text-decoration: none;
+      padding: 5px;
+    }
+
+    header .back-btn:hover {
+      color: #ff4c60;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    /* Login Page Styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f3f4f6;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding-top: 40px; /* To avoid overlap with fixed header */
+    }
+
+    .login-container {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .login-container h2 {
+      margin: 0 0 20px;
+      font-size: 24px;
+      color: #131f33;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    .form-group input:focus {
+      border-color: #131f33;
+      outline: none;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 10px;
+      background-color: #131f33;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .login-btn:hover {
+      background-color: #ff4c60;
+    }
+
+    .signup-link {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .signup-link a {
+      color: #131f33;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .signup-link a:hover {
+      color: #ff4c60;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <a href="index.html" class="back-btn"><i class="ri-arrow-left-line"></i></a>
+    <h1>Blog Today</h1>
+    <div></div> <!-- Empty div for spacing (if necessary) -->
+  </header>
+
+  <!-- Login Form -->
+  <div class="login-container">
+    <h2>Login to Your Account</h2>
+    <form onsubmit="handleLogin(event)">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email : jainsakshi0408@gmail.com" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password : sakshi11" required>
+      </div>
+      <button type="submit" class="login-btn">Login</button>
+    </form>
+    <div class="signup-link">
+      Use the password and email in placeholder
+    </div>
+  </div>
+
+  <script>
+    function handleLogin(event) {
+      event.preventDefault(); // Prevent form submission
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      // Simple login simulation
+      if (email === "jainsakshi0408@gmail.com" && password === "sakshi11") {
+        alert("Login successful!");
+        window.location.href = "dashboard.html"; // Redirect to dashboard
+      } else {
+        alert("Invalid email or password. Please try again.");
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BlogToday</title>
+
+    <!-- Linking external CSS stylesheet -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="Navbar">
+            <div class="container">
+                <!-- Website Logo -->
+                <div class="Logo">Blog Today</div>
+    
+                <!-- Navigation menu -->
+                <div id="menu" class="menu">
+                    <header class="inline">
+                        <!-- Repeated logo inside the menu for mobile users -->
+                        <div class="Logo">BlogToday</div>
+                        <!-- Close menu button for mobile users -->
+                        <button
+                            id="closeMenuBtn"
+                            title="Close Menu"
+                            aria-label="Close Menu"
+                            class="NavButton"
+                        >
+                            <i class="ri-close-line"></i>
+                        </button>
+                    </header>
+    
+                    <!-- Navigation links -->
+                    <a href="./index.html" class="NavLink">Home</a>
+                    <a href="./Dashboard.html" class="NavLink">Dashboard</a>
+                    <a href="./trending.html" class="NavLink">Trending</a>
+                    <a href="./about.html" class="NavLink">About</a>
+                   <!-- Login Button -->
+                    <a href="./login.html" class="login-btn">Login</a>
+                    
+                </div>
+    
+                <!-- Open menu button for mobile users -->
+                <button
+                    id="openMenuBtn"
+                    title="Open Menu"
+                    aria-label="Open Menu"
+                    class="NavButton"
+                >
+                    <i class="ri-menu-line"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+    
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home">
+            <div class="hero">
+                <!-- Visual section with responsive images -->
+                <div class="visual">
+                    <picture>
+                        <!-- Different image formats and resolutions for responsiveness -->
+                        <source
+                            srcset="./image.png"
+                            type="image/avif"
+                            media="(width > 1024px)"
+                        />
+                        <source
+                            srcset="./image.png"
+                            type="image/avif"
+                        />
+                        <source
+                            srcset="./image.png"
+                            media="(width > 1024px)"
+                            type="image/webp"
+                        />
+                        <!-- Fallback image -->
+
+                        <img
+                            src="./image.png"
+                            alt="Blogimage" 
+                        />
+                    </picture>
+                </div>
+
+                <!-- Text content inside the hero section -->
+                <div class="content" >
+                    <h1 style="color: #000000">Let's write the experience</h1>
+                    <!-- Get Started  button -->
+                    <div class="wrapper">
+                        <a href="./Dashboard.html" class="LinkButton Primary"> Get Started </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Motivational text -->
+            <div id="discover" class="fold">
+                <div class="ssubject">
+                    <p>
+                        <span style="color: var(--brand-1)">
+                            Write for the dreamers, the seekers, and the learners.
+                        </span>
+                            Whether you're sharing a personal journey, a passion project, or expertise in your field, remember that your words have the power to change perspectives
+                            , spark creativity, and build a community
+                            
+                            
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="schedules" class="schedule">
+            <div class="subject">
+                <div class="container">
+                    <div class="table-wrapper">
+                        <a href="./bloggingschedule.html"><h2 >Weekly Blogging Schedule</h2></a>
+                        
+                        <table>
+                            <tr>
+                                <th>Day</th>
+                                <th>Task</th>
+                                <th>Focus Area</th>
+                            </tr>
+                            <tr>
+                                <td>Monday</td>
+                                <td>Brainstorm Blog Topics</td>
+                                <td>Note-Taking</td>
+                            </tr>
+                            <tr>
+                                <td>Tuesday</td>
+                                <td>Research and Collect Resources</td>
+                                <td>Content Planning</td>
+                            </tr>
+                            <tr>
+                                <td>Wednesday</td>
+                                <td>Write First Draft</td>
+                                <td>Text Editor</td>
+                            </tr>
+                            <tr>
+                                <td>Thursday</td>
+                                <td>Format and Add Media</td>
+                                <td>Rich Text Editor</td>
+                            </tr>
+                            <tr>
+                                <td>Friday</td>
+                                <td>Publish and Promote Blog</td>
+                                <td>Sharing & Analytics</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <!-- Recent Blogging Activities Table -->
+                    <div class="table-wrapper">
+                        <h2>Recent Blogging Activities</h2>
+                        <table>
+                            <tr>
+                                <th>Activity</th>
+                                <th>Details</th>
+                            </tr>
+                            <tr>
+                                <td>New Blog Idea</td>
+                                <td>Added 3 fresh ideas to the Note-Taking tool.</td>
+                            </tr>
+                            <tr>
+                                <td>Content Drafted</td>
+                                <td>Started a blog titled "How to Stay Consistent with Blogging."</td>
+                            </tr>
+                            <tr>
+                                <td>Formatting</td>
+                                <td>Applied headings, bullet points, and an image carousel.</td>
+                            </tr>
+                            <tr>
+                                <td>Published Blog</td>
+                                <td>"Top 5 Tools for Beginner Bloggers" is live!</td>
+                            </tr>
+                            <tr>
+                                <td>Promoted Post</td>
+                                <td>Shared the latest blog on social media platforms.</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+
+            <!-- Video and image showcase -->
+            <div class="showcase">
+                <!-- Background video -->
+                <video
+                    autoplay
+                    loop
+                    muted
+                    poster="./typeimg.webp"
+                    role="none"
+                >
+                    <source src="./typevideo.mp4" type="video/mp4" />
+                </video>
+                <!-- Supporting image -->
+                <img src="./animation.png" alt="Express" />
+            </div>
+        </section>
+
+        <!-- Plans Section -->
+        <section id="content-plans" class="cards">
+            <div class="subject">
+                <div class="container">
+                    <!-- Card 1: Writing Milestones -->
+                    <a href="#" class="Card">
+                        <i class="ri-pencil-line"></i>
+                        <div>
+                            <h2>Writing Milestones</h2>
+                            <ul>
+                                <li>Most Words Written in a Day: 3,000</li>
+                                <li>Longest Blog Published: 2,500 words</li>
+                                <li>Fastest Blog Published: 4 hours</li>
+                            </ul>
+                        </div>
+                    </a>
+                    <!-- Card 2: Blogging Challenges -->
+                    <a href="#" class="Card">
+                        <i class="ri-rocket-line"></i>
+                        <div>
+                            <h2>Blogging Challenges</h2>
+                            <ul>
+                                <li>Write a Blog Every Day for 30 Days</li>
+                                <li>Reach 100 Blog Views in a Week</li>
+                                <li>Gain 50 New Subscribers in a Month</li>
+                            </ul>
+                        </div>
+                    </a>
+                    <!-- Card 3: Community Insights -->
+                    <a href="#" class="Card">
+                        <i class="ri-chat-3-line"></i>
+                        <div>
+                            <h2>Community Insights</h2>
+                            <ul>
+                                <li>Sophie just wrote a trending blog: "Top 10 SEO Tips!"</li>
+                                <li>David reached 1,000 subscribers this week!</li>
+                                <li>Emily shared a new draft idea: "The Future of AI in Blogging."</li>
+                            </ul>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <!-- Target word for scrolling animation -->
+            <div id="target-word">love</div>
+        </section>
+    </main>
+        <!-- Footer Section -->
+        <footer>
+            <div class="footer-container">
+              <div class="footer-content">
+                <div class="footer-about">
+                  <h3>About Blog the Day</h3>
+                  <p>Blog the Day is your go-to platform for sharing stories, ideas, and inspiration with a vibrant community of readers and writers.</p>
+                </div>
+                <div class="footer-contact">
+                  <h3>Contact Us</h3>
+                  <form onsubmit="submitContactForm(event)">
+                    <div class="form-group">
+                      <label for="name">Name</label>
+                      <input type="text" id="name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="email">Email</label>
+                      <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="message">Message</label>
+                      <textarea id="message" placeholder="Your message" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send</button>
+                  </form>
+                </div>
+              </div>
+              
+            </div>
+  </footer>
+    
+    <!-- Linking external JavaScript file -->
+    <script src="script.js"></script>
+
+
+</body>
+</html>

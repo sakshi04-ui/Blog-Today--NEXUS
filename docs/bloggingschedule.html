@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog The Day</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f8fc;
+            color: #131f33;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            padding-top: 70px; /* Add padding to body to account for fixed header */
+        }
+
+        /* Header Styling */
+        header {
+            width: 100%;
+            background-color: #131f33;
+            color: white;
+            padding: 20px 30px; /* Increased padding for bigger header */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed; /* Fixed position to keep header on top */
+            top: 0;
+            left: 0;
+            z-index: 1000; /* Ensure header stays on top of other content */
+        }
+
+        header .back-btn {
+            color: white;
+            font-size: 28px; /* Increased font size for the back button */
+            text-decoration: none;
+            padding: 5px;
+        }
+
+        header .back-btn:hover {
+            color: #ff4c60;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px; /* Increased font size for the header title */
+        }
+
+        .timetable-container {
+            width: 90%;
+            max-width: 800px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            margin-top: 70px; /* Adjust for header height */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        table th {
+            background-color: #ff4c60;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table tr:hover {
+            background-color: #ffebeb;
+            cursor: pointer;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .action-buttons button {
+            padding: 10px 20px;
+            background-color: #ff4c60;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .action-buttons button:hover {
+            background-color: #ff2a4a;
+        }
+
+        #create-btn {
+            border-radius: 25px;
+            padding: 10px 20px;
+            background-color: #131f33;
+            color: white;
+            cursor: pointer;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        #create-btn:hover {
+            background-color: #ff4c60;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 90%;
+            max-width: 800px;
+            overflow-x: auto;
+        }
+
+        input[type="text"] {
+            width: 90%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #131f33;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ff4c60;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                width: 100%;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            input[type="text"] {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section with Back Button -->
+    <header>
+        <a href="./Dashboard.html" class="back-btn"><i class="ri-arrow-left-line"></i></a>
+        <h1>Blog Today</h1>
+        <div></div> <!-- Empty div for spacing (if necessary) -->
+    </header>
+
+    <!-- Timetable Section -->
+    <div id="timetable-container" class="timetable-container">
+        <h1>Weekly Blogging Schedule</h1>
+        <div id="schedule-content">
+            <p>No timetable created yet.</p>
+        </div>
+        <div class="action-buttons">
+            <button id="create-btn" onclick="showForm()">Create Timetable</button>
+        </div>
+    </div>
+
+    <script>
+        function displayTimetable() {
+            const scheduleData = localStorage.getItem("weeklySchedule");
+            const scheduleContent = document.getElementById("schedule-content");
+            const createBtn = document.getElementById("create-btn");
+
+            if (scheduleData) {
+                const schedule = JSON.parse(scheduleData);
+
+                const creationDate = schedule.date || new Date().toLocaleDateString();
+                let content = `
+                    <p><strong>Created on:</strong> ${creationDate}</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Task</th>
+                                <th>Focus Area</th>
+                            </tr>
+                        </thead>
+                        <tbody>`;
+
+                for (let i = 0; i < 7; i++) {
+                    content += `
+                        <tr>
+                            <td>${["Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday","Saturday"][i]}</td>
+                            <td>${schedule.tasks[i] || "No Task"}</td>
+                            <td>${schedule.focusAreas[i] || "No Focus Area"}</td>
+                        </tr>`;
+                }
+
+                content += `</tbody>
+                    </table>
+                    <div class="action-buttons">
+                        <button onclick="editTimetable()">Edit</button>
+                        <button onclick="deleteTimetable()">Delete</button>
+                    </div>`;
+
+                scheduleContent.innerHTML = content;
+                createBtn.style.display = "none";
+            } else {
+                scheduleContent.innerHTML = "<p>No timetable created yet.</p>";
+                createBtn.style.display = "block";
+            }
+        }
+
+        function showForm(edit = false) {
+            const scheduleData = edit ? JSON.parse(localStorage.getItem("weeklySchedule")) : { tasks: [], focusAreas: [] };
+            const scheduleContent = document.getElementById("schedule-content");
+
+            let formContent = `
+                <div class="card">
+                    <table>
+                        <tr>
+                            <th>Day</th>
+                            <th>Task</th>
+                            <th>Focus Area</th>
+                        </tr>`;
+
+            const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            
+            days.forEach((day, i) => {
+                formContent += `
+                    <tr>
+                        <td>${day}</td>
+                        <td><input type="text" id="task-${day.toLowerCase()}" placeholder="Enter Task" value="${scheduleData.tasks[i] || ""}"></td>
+                        <td><input type="text" id="focus-${day.toLowerCase()}" placeholder="Enter Focus Area" value="${scheduleData.focusAreas[i] || ""}"></td>
+                    </tr>`;
+            });
+
+            formContent += `</table>
+                </div>
+                <div class="buttons">
+                    <button onclick="saveTimetable()">Save</button>
+                    <button onclick="displayTimetable()">Cancel</button>
+                </div>`;
+
+            scheduleContent.innerHTML = formContent;
+        }
+
+        function saveTimetable() {
+            const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            const tasks = days.map(day => document.getElementById(`task-${day.toLowerCase()}`).value);
+            const focusAreas = days.map(day => document.getElementById(`focus-${day.toLowerCase()}`).value);
+
+            const schedule = { tasks, focusAreas, date: new Date().toLocaleDateString() };
+
+            // Save schedule to localStorage
+            localStorage.setItem("weeklySchedule", JSON.stringify(schedule));
+
+            // Redirect to same page to display schedule
+            displayTimetable();
+        }
+
+        function deleteTimetable() {
+            localStorage.removeItem("weeklySchedule");
+            displayTimetable();
+        }
+
+        function editTimetable() {
+            showForm(true);
+        }
+
+        displayTimetable();
+    </script>
+</body>
+</html>

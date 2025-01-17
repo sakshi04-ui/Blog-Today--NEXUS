@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlogToday</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="note.css">
+</head>
+<body>
+  <!-- Header Section with Back Button -->
+  <header>
+    <a href="Dashboard.html" class="back-btn"><i class="ri-arrow-left-line"></i></a>
+    <h1>Blog Today</h1>
+    <div></div> <!-- Empty div for spacing (if necessary) -->
+  </header>
+
+  <div class="container">
+    <h1>Manage Your Thoughts</h1>
+    <div class="no-notes" id="no-notes">No notes created yet</div>
+    <div class="notes-container" id="notes-container"></div>
+    <button class="add-note-btn" onclick="window.location.href='notetaking.html'">+</button>
+  </div>
+  
+  <!-- Modal for Note Preview -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <h2 id="modal-title">Title</h2>
+      <p id="modal-description">Description</p>
+      <div class="modal-actions">
+        <button class="close-btn" id="close-btn">Close</button>
+      </div>
+    </div>
+  </div>
+  
+  
+  <script src="note.js"></script>
+</body>
+</html>

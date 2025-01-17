@@ -1,0 +1,191 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+}
+
+/* Header Styling */
+header {
+  width: 100%;
+  background-color: #131f33;
+  color: white;
+  padding: 20px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+header .back-btn {
+  color: white;
+  font-size: 28px;
+  text-decoration: none;
+  padding: 5px;
+}
+
+header .back-btn:hover {
+  color: #ff4c60;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+/* Main Container */
+.container {
+  text-align: center;
+  width: 80%;
+  max-width: 1200px;
+  margin-top: 80px; /* Avoid overlap with header */
+}
+
+.no-notes {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #888;
+}
+
+.notes-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  width: 220px;
+  height: 200px;
+  background-color: #e0f2f1;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  cursor: pointer;
+  overflow: hidden; /* Ensure text truncation works */
+}
+
+.card:hover {
+  background-color: tomato;
+  color: white;
+}
+
+.card h3 {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.card .card-description {
+  margin: 0;
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: #333;
+  display: -webkit-box;               /* This is required for line clamping */
+  --webkit-line-clamp: 3;             /* Limit to 3 lines */
+  -webkit-box-orient: vertical;      /* Required for line clamping to work */
+  overflow: hidden;                  /* Hide content overflow */
+  text-overflow: ellipsis;           /* Show ellipsis when content overflows */
+  height: 4.2em;                     /* Adjusted for 3 lines of text */
+}
+
+
+.card .delete-btn {
+  background: #ff4c60;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.card .delete-btn:hover {
+  background: #e04355;
+}
+
+/* Add Note Button */
+.add-note-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.add-note-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Modal Styling */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content h2 {
+  margin: 0 0 10px;
+  font-size: 22px;
+  color: #333;
+}
+
+.modal-content p {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #555;
+}
+
+.close-btn {
+  background: #ff4c60;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.close-btn:hover {
+  background: #e04355;
+}

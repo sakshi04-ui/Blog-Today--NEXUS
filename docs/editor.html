@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlogToday</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="editor.css">
+</head>
+<body>
+  <!-- Header Section with Back Button -->
+  <header>
+      <a href="./displayblog.html" class="back-btn"><i class="ri-arrow-left-line"></i></a>
+      <h1>Blog Today</h1>
+      <div></div> <!-- Empty div for spacing (if necessary) -->
+  </header>
+  <div class="editor-container">
+    <input type="text" class="editor-title" placeholder="Title" />
+    <div class="toolbar">
+      <!-- Basic formatting -->
+      <button class="tool-button" data-command="undo">↺</button>
+      <button class="tool-button" data-command="redo">↻</button>
+      <button class="tool-button" data-command="bold"><b>B</b></button>
+      <button class="tool-button" data-command="italic"><i>I</i></button>
+      <button class="tool-button" data-command="underline"><u>U</u></button>
+      <button class="tool-button" data-command="strikeThrough"><s>S</s></button>
+
+      <!-- Font and size -->
+      <select class="tool-select" data-command="formatBlock">
+        <option value="p">Normal</option>
+        <option value="h1">Heading 1</option>
+        <option value="h2">Heading 2</option>
+        <option value="h3">Heading 3</option>
+      </select>
+      <select class="tool-select" data-command="fontName">
+        <option value="Arial">Arial</option>
+        <option value="Verdana">Verdana</option>
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="Courier New">Courier New</option>
+        <option value="Georgia">Georgia</option>
+      </select>
+      <select class="tool-select" data-command="fontSize">
+        <option value="1">Small</option>
+        <option value="2">Normal</option>
+        <option value="4">Large</option>
+        <option value="5">Extra Large</option>
+        <option value="7">Huge</option>
+      </select>
+
+      <!-- List creation -->
+      <button class="tool-button" data-command="insertUnorderedList">• List</button>
+      <button class="tool-button" data-command="insertOrderedList">1. List</button>
+
+      <!-- Text alignment -->
+      <button class="tool-button" data-command="justifyLeft">⟸</button>
+      <button class="tool-button" data-command="justifyCenter">⟷</button>
+      <button class="tool-button" data-command="justifyRight">⟹</button>
+
+      <!-- Image options -->
+      <div class="image-menu">
+        <button class="tool-button" id="image-dropdown">📷▼</button>
+        <div class="image-options">
+          <button class="tool-button" id="insert-url">From URL</button>
+          <button class="tool-button" id="upload-file">Upload File</button>
+          <input type="file" id="file-input" accept="image/*" style="display: none;" />
+        </div>
+      </div>
+
+      <!-- Color Selection -->
+      <button class="tool-button" id="color-picker-toggle">🎨</button>
+      <div class="color-picker-container">
+        <input type="color" id="text-color-picker" />
+      </div>
+    </div>
+
+    <div class="editor" contenteditable="true"></div>
+    <button id="save-button" class="save-button">Save</button>
+  </div>
+
+  <script src="editor.js"></script>
+</body>
+</html>

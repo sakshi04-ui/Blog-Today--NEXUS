@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlogToday</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="Navbar">
+            <div class="container">
+                <!-- Website Logo -->
+                <div class="Logo">Blog Today</div>
+    
+                <!-- Navigation menu -->
+                <div id="menu" class="menu">
+                    <header class="inline">
+                        <!-- Repeated logo inside the menu for mobile users -->
+                        <div class="Logo">Blog The Day</div>
+                        <!-- Close menu button for mobile users -->
+                        <button
+                            id="closeMenuBtn"
+                            title="Close Menu"
+                            aria-label="Close Menu"
+                            class="NavButton"
+                        >
+                            <i class="ri-close-line"></i>
+                        </button>
+                    </header>
+    
+                    <!-- Navigation links -->
+                    <a href="./index.html" class="NavLink">Home</a>
+                    <a href="./Dashboard.html" class="NavLink">Dashboard</a>
+                    <a href="./trending.html" class="NavLink">Trending</a>
+                    <a href="./about.html" class="NavLink">About</a>
+                </div>
+    
+                <!-- Open menu button for mobile users -->
+                <button
+                    id="openMenuBtn"
+                    title="Open Menu"
+                    aria-label="Open Menu"
+                    class="NavButton"
+                >
+                    <i class="ri-menu-line"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+    <section class="blog-section">
+        <div class="container">
+            <div class="card" onclick="redirectTo('bloggingschedule.html')">
+                <h3><i class="ri-calendar-line"></i> Day Planner & Blog Organizer</h3>
+                <ul>
+                    <li>Plan your day with a personalized schedule</li>
+                    <li>Organize blog tasks with deadlines</li>
+                    <li>Track your progress with a built-in to-do list</li>
+                    <li>Set reminders for daily priorities</li>
+                </ul>
+                <p>Take control of your day and make your blogging journey more organized and productive!</p>
+            </div>
+            
+            
+
+            <div class="card" onclick="redirectTo('displayblog.html')">
+                <h3><i class="ri-file-list-line"></i> My Blogs & Creative Challenges</h3>
+                <ul>
+                    <li>Create engaging blogs with images and multimedia</li>
+                    <li>Showcase all blogs you’ve created in one place</li>
+                    <li>Access a user-friendly editor for seamless blog creation</li>
+                    <li>Organize and manage your blog portfolio easily</li>
+                </ul>
+                <p>Unleash your creativity and bring your blogging ideas to life with powerful tools at your fingertips!</p>
+            </div>
+            
+
+            <div class="card" onclick="redirectTo('displaynote.html')">
+                
+                <h3> <i class="ri-sticky-note-line"></i>Notes & Ideas Manager</h3>
+                <ul>
+                    <li>Create detailed notes for your blogging ideas</li>
+                    <li>Organize and categorize your thoughts effortlessly</li>
+                    <li>Save draft ideas for future blog topics</li>
+                    <li>Access all your notes in one convenient place</li>
+                </ul>
+                <p>Streamline your creative process and keep all your blogging inspirations at your fingertips!</p>
+            </div>
+            
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

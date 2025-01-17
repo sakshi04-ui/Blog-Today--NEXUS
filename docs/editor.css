@@ -1,0 +1,178 @@
+/* General Body Styling */
+html, body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Header Styling */
+header {
+  width: 100%;
+  background-color: #131f33;
+  color: white;
+  padding: 20px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 80px;
+  box-sizing: border-box;
+}
+
+/* Header Back Button */
+header .back-btn {
+  color: white;
+  font-size: 28px;
+  text-decoration: none;
+  padding: 5px;
+}
+
+header .back-btn:hover {
+  color: #ff4c60;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+/* Adjust container to avoid overlap with fixed header */
+.editor-container {
+  width: 100%;
+  max-width: 1030px;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding-bottom: 20px;
+  margin: 100px auto 0;
+  padding-top: 30px;
+}
+
+/* Editor Title */
+.editor-title {
+  width: 100%;
+  box-sizing: border-box; /* Ensure padding and borders are included in width */
+  border: none;
+  padding: 15px;
+  font-size: 24px;
+  border-bottom: 1px solid #ffa500;
+  outline: none;
+  resize: none; /* Prevent resizing */
+  overflow: hidden; /* Prevent overflow */
+}
+
+/* Toolbar */
+.toolbar {
+  display: flex;
+  padding: 10px;
+  background: #f9f9f9;
+  border-bottom: 1px solid #ddd;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+/* Tool Button */
+.tool-button {
+  border: none;
+  background: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 3px;
+  transition: background-color 0.3s;
+}
+
+/* Tool Button Hover Effect */
+.tool-button:hover {
+  background: #ffa500;
+  color: white;
+}
+
+/* Tool Select */
+.tool-select {
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+/* Editor */
+.editor {
+  padding: 20px;
+  min-height: 300px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  word-wrap: break-word;
+  overflow-y: auto;
+  resize: vertical;
+  max-height: 500px;
+  box-sizing: border-box;
+  padding-bottom: 60px;
+}
+
+/* Image Menu */
+.image-menu {
+  position: relative;
+}
+
+/* Image Options */
+.image-options {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.image-options button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.image-options button:hover {
+  background: #f0f0f0;
+}
+
+/* Image Options Visibility on Hover */
+#image-dropdown:hover + .image-options,
+.image-options:hover {
+  display: block;
+}
+
+/* Save Button */
+.save-button {
+  margin: 20px;
+  padding: 10px 20px;
+  background: #ffa500;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  display: block;
+  margin: 20px auto;
+}
+
+/* Save Button Hover Effect */
+.save-button:hover {
+  background: #ff8500;
+}
+

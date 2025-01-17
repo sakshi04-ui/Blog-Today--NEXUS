@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlogToday</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+
+    /* Header Styling */
+    header {
+      width: 100%;
+      background-color: #131f33;
+      color: white;
+      padding: 20px 30px; /* Increased padding for bigger header */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: fixed; /* Fixed position to keep header on top */
+      top: 0;
+      left: 0;
+      z-index: 1000; /* Ensure header stays on top of other content */
+        }
+
+        header .back-btn {
+            color: white;
+            font-size: 28px; /* Increased font size for the back button */
+            text-decoration: none;
+            padding: 5px;
+        }
+
+        header .back-btn:hover {
+            color: #ff4c60;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px; /* Increased font size for the header title */
+        }
+
+        .notes-container {
+          max-width: 600px;
+          margin: 100px auto 20px; /* Increased top margin to 100px */
+          background-color: #fff;
+          padding: 20px;
+          border-radius: 8px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+
+    .notes-container h2 {
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
+
+    .notes-container label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .notes-container input[type="text"],
+    .notes-container textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .notes-container textarea {
+      height: 100px;
+    }
+
+    .color-picker {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .color-option {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+
+    .color-option.active {
+      border-color: black;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .btn.add {
+      background-color: #007bff;
+      color: #fff;
+    }
+
+    .btn.reset {
+      background-color: #dc3545;
+      color: #fff;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="./displaynote.html" class="back-btn"><i class="ri-arrow-left-line"></i></a>
+    <h1>Blog Today</h1>
+    <div></div> <!-- Empty div for spacing (if necessary) -->
+</header>
+
+
+  <div class="notes-container">
+    <h2>Add New Note</h2>
+    <label for="note-title">Title</label>
+    <input type="text" id="note-title" placeholder="e.g., Schedule A Meeting">
+
+    <label for="note-description">Description</label>
+    <textarea id="note-description" placeholder="Enter note description"></textarea>
+
+    <label>Select Note Color:</label>
+    <div class="color-picker">
+      <div class="color-option" data-color="blue" style="background-color: blue;"></div>
+      <div class="color-option" data-color="orange" style="background-color: orange;"></div>
+      <div class="color-option" data-color="green" style="background-color: green;"></div>
+      <div class="color-option" data-color="purple" style="background-color: purple;"></div>
+    </div>
+
+    <button class="btn add">Add</button>
+    <button class="btn reset">Reset</button>
+  </div>
+
+  <script>
+    const colorOptions = document.querySelectorAll('.color-option');
+    const addButton = document.querySelector('.btn.add');
+    const resetButton = document.querySelector('.btn.reset');
+    let selectedColor = null;
+
+    // Color picker logic
+    colorOptions.forEach(option => {
+      option.addEventListener('click', () => {
+        colorOptions.forEach(opt => opt.classList.remove('active'));
+        option.classList.add('active');
+        selectedColor = option.getAttribute('data-color');
+      });
+    });
+
+    // Add button logic
+    addButton.addEventListener('click', () => {
+      const title = document.getElementById('note-title').value;
+      const description = document.getElementById('note-description').value;
+
+      if (!title || !description || !selectedColor) {
+        alert('Please fill in all fields and select a color.');
+        return;
+      }
+
+      // Retrieve existing notes or initialize an empty array
+      const notes = JSON.parse(localStorage.getItem('notes')) || [];
+
+      // Create a new note
+      const newNote = { title, description, color: selectedColor };
+
+      // Add the new note to the array
+      notes.push(newNote);
+
+      // Save updated notes array to localStorage
+      localStorage.setItem('notes', JSON.stringify(notes));
+
+      // Redirect to displaynote.html
+      window.location.href = './displaynote.html';
+    });
+
+    // Reset button logic
+    resetButton.addEventListener('click', () => {
+      document.getElementById('note-title').value = '';
+      document.getElementById('note-description').value = '';
+      colorOptions.forEach(opt => opt.classList.remove('active'));
+      selectedColor = null;
+    });
+  </script>
+</body>
+</html>

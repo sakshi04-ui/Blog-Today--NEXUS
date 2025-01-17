@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlogToday</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="Navbar">
+            <div class="container">
+                <!-- Website Logo -->
+                <div class="Logo">Blog Today</div>
+    
+                <!-- Navigation menu -->
+                <div id="menu" class="menu">
+                    <header class="inline">
+                        <!-- Repeated logo inside the menu for mobile users -->
+                        <div class="Logo">Blog The Day</div>
+                        <!-- Close menu button for mobile users -->
+                        <button
+                            id="closeMenuBtn"
+                            title="Close Menu"
+                            aria-label="Close Menu"
+                            class="NavButton"
+                        >
+                            <i class="ri-close-line"></i>
+                        </button>
+                    </header>
+    
+                    <!-- Navigation links -->
+                    <a href="./index.html" class="NavLink">Home</a>
+                    <a href="./Dashboard.html" class="NavLink">Dashboard</a>
+                    <a href="./trending.html" class="NavLink">Trending</a>
+                    <a href="./about.html" class="NavLink">About</a>
+                </div>
+    
+                <!-- Open menu button for mobile users -->
+                <button
+                    id="openMenuBtn"
+                    title="Open Menu"
+                    aria-label="Open Menu"
+                    class="NavButton"
+                >
+                    <i class="ri-menu-line"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+    <!-- Trending Section -->
+<section class="trending-section">
+    <div class="container">
+        <!-- Filter Section -->
+        <div class="filter-container">
+            <label for="filter">Filter by Category: </label>
+            <select id="filter" class="filter-select">
+                <option value="all">All</option>
+                <option value="technology">Technology</option>
+                <option value="ethics">Ethics</option>
+                <option value="cybersecurity">Cybersecurity</option>
+                <option value="energy">Energy</option>
+                <option value="health">Health</option>
+                <option value="space">Space Exploration</option>
+            </select>
+        </div>
+        <h1>Trending Blogs</h1>
+        
+
+        <!-- Blog Card 1 -->
+        <div class="blog-card">
+            <div class="card-content">
+                <h2 class="card-title">Understanding Professional Ethics</h2>
+                <p class="card-description">An insightful exploration of professional ethics in modern society...</p>
+                <div class="card-footer">
+                    <div class="footer-icons">
+                        <i class="upvote">👍</i>
+                        <i class="downvote">👎</i>
+                        <i class="share">🔗</i>
+                        <i class="comments">💬</i>
+                    </div>
+                    <div><span>5 minutes ago</span></div>
+                </div>
+            </div>
+            <img src="./TrendingSectionImage/image.png" alt="Blog Image">
+        </div>
+
+        <!-- Blog Card 2 -->
+        <div class="blog-card">
+            <div class="card-content">
+                <h2 class="card-title">The Role of Ethics in Technology</h2>
+                <p class="card-description">How ethics shapes the future of technological innovation...</p>
+                <div class="card-footer">
+                    <div class="footer-icons">
+                        <i class="upvote">👍</i>
+                        <i class="downvote">👎</i>
+                        <i class="share">🔗</i>
+                        <i class="comments">💬</i>
+                    </div>
+                    <div><span>10 minutes ago</span></div>
+                </div>
+            </div>
+            <img src="./animation.png" alt="Blog Image">
+        </div>
+
+        <!-- Blog Card 3 -->
+        <div class="blog-card">
+            <div class="card-content">
+                <h2 class="card-title">How AI is Changing the World</h2>
+                <p class="card-description">Exploring the impact of artificial intelligence on various industries...</p>
+                <div class="card-footer">
+                    <div class="footer-icons">
+                        <i class="upvote">👍</i>
+                        <i class="downvote">👎</i>
+                        <i class="share">🔗</i>
+                        <i class="comments">💬</i>
+                    </div>
+                    <div><span>15 minutes ago</span></div>
+                </div>
+            </div>
+            <img src="./TrendingSectionImage/image2.png" alt="AI Blog Image">
+        </div>
+
+        <!-- Blog Card 4 -->
+        <div class="blog-card">
+            <div class="card-content">
+                <h2 class="card-title">The Importance of Cybersecurity</h2>
+                <p class="card-description">An essential guide to understanding cybersecurity and staying safe online...</p>
+                <div class="card-footer">
+                    <div class="footer-icons">
+                        <i class="upvote">👍</i>
+                        <i class="downvote">👎</i>
+                        <i class="share">🔗</i>
+                        <i class="comments">💬</i>
+                    </div>
+                    <div><span>20 minutes ago</span></div>
+                </div>
+            </div>
+            <img src="./TrendingSectionImage/image3.png" alt="Cybersecurity Blog Image">
+        </div>
+
+        <!-- Blog Card 5 -->
+        <div class="blog-card">
+            <div class="card-content">
+                <h2 class="card-title">Future of Renewable Energy</h2>
+                <p class="card-description">How renewable energy is reshaping the global energy landscape...</p>
+                <div class="card-footer">
+                    <div class="footer-icons">
+                        <i class="upvote">👍</i>
+                        <i class="downvote">👎</i>
+                        <i class="share">🔗</i>
+                        <i class="comments">💬</i>
+                    </div>
+                    <div><span>25 minutes ago</span></div>
+                </div>
+            </div>
+            <img src="./TrendingSectionImage/image2.png" alt="Renewable Energy Blog Image">
+        </div>
+
+        <!-- Blog Card 6 -->
+        <div class="blog-card">
+            <div class="card-content">
+                <h2 class="card-title">Mental Health in the Workplace</h2>
+                <p class="card-description">A deep dive into promoting mental well-being at work...</p>
+                <div class="card-footer">
+                    <div class="footer-icons">
+                        <i class="upvote">👍</i>
+                        <i class="downvote">👎</i>
+                        <i class="share">🔗</i>
+                        <i class="comments">💬</i>
+                    </div>
+                    <div><span>30 minutes ago</span></div>
+                </div>
+            </div>
+            <img src="./TrendingSectionImage/image3.png" alt="Mental Health Blog Image">
+        </div>
+
+        <!-- Blog Card 7 -->
+        <div class="blog-card">
+            <div class="card-content">
+                <h2 class="card-title">Space Exploration: What's Next?</h2>
+                <p class="card-description">Examining the next big missions and advancements in space exploration...</p>
+                <div class="card-footer">
+                    <div class="footer-icons">
+                        <i class="upvote">👍</i>
+                        <i class="downvote">👎</i>
+                        <i class="share">🔗</i>
+                        <i class="comments">💬</i>
+                    </div>
+                    <div><span>40 minutes ago</span></div>
+                </div>
+            </div>
+            <img src="./TrendingSectionImage/image.png" alt="Space Exploration Blog Image">
+        </div>
+
+
+        <!-- Load More Button -->
+        <div class="button-container">
+            <button class="btn">Load More</button>
+        </div>
+    </div>
+</section>
+
+    <script src="script.js"></script>
+</body>
+</html>

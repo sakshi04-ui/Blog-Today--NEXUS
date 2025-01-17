@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlogToday</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+  <style>
+    /* Header Styling */
+    header {
+      width: 100%;
+      background-color: #131f33;
+      color: white;
+      padding: 20px 30px; /* Increased padding for bigger header */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: fixed; /* Fixed position to keep header on top */
+      top: 0;
+      left: 0;
+      z-index: 1000; /* Ensure header stays on top of other content */
+    }
+
+    header .back-btn {
+        color: white;
+        font-size: 28px; /* Increased font size for the back button */
+        text-decoration: none;
+        padding: 5px;
+    }
+
+    header .back-btn:hover {
+        color: #ff4c60;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 28px; /* Increased font size for the header title */
+    }
+
+    /* Blog View Container */
+    .blog-view-container {
+      margin-top: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f8f9fa; /* Light gray background for the page */
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    /* Blog Box Styling */
+    .blog-box {
+      background-color: #f1f3f7; /* Lightest blue color */
+      border: 2px solid #131f33; /* Dark blue border */
+      border-radius: 8px; /* Rounded corners */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Elevated effect */
+      padding: 20px;
+      max-width: 800px;
+      width: 100%;
+      box-sizing: border-box;
+      overflow-wrap: break-word; /* Ensure long words or URLs don't overflow */
+    }
+
+    /* Blog Title Styling */
+    .blog-box h1 {
+      font-size: 32px; /* Increased font size */
+      font-weight: bold;
+      color: #131f33; /* Same color as the border */
+      margin-bottom: 15px;
+      text-align: center; /* Center the title */
+      word-wrap: break-word; /* Prevent text overflow */
+      overflow-wrap: break-word;
+    }
+    /* Blog Content Styling */
+    .blog-box .content {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #333333; /* Darker text color for readability */
+    }
+
+    /* Button Styling */
+    .blog-box .button-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .button-container button {
+      padding: 10px 15px;
+      font-size: 14px;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .close-btn {
+      background-color: #007bff; /* Blue background */
+    }
+
+    .delete-btn {
+      background-color: #ff4c60; /* Red background */
+    }
+
+    .button-container button:hover {
+      opacity: 0.8;
+    }
+
+    /* Additional Styles for Responsiveness */
+    @media (max-width: 768px) {
+      .blog-box {
+        padding: 15px;
+      }
+
+      .blog-box h1 {
+        font-size: 24px;
+      }
+
+      .blog-box .content {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <a href="displayblog.html" class="back-btn"><i class="ri-arrow-left-line"></i></a>
+    <h1>Blog Today</h1>
+    <div></div> <!-- Empty div for spacing (if necessary) -->
+  </header>
+
+  <div class="blog-view-container">
+    <div class="blog-box">
+      <h1 id="blog-title">Blog Title</h1>
+      <div id="blog-content" class="content">
+        <!-- Blog content will go here -->
+      </div>
+      <!-- Button container -->
+      <div class="button-container">
+        <button class="close-btn" id="close-btn">Close</button>
+        <button class="delete-btn" id="delete-btn">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const blog = JSON.parse(localStorage.getItem("currentBlog"));
+
+      if (!blog) {
+        alert("No blog selected!");
+        window.location.href = "displayblog.html"; // Redirect if no blog data exists
+      }
+
+      document.getElementById("blog-title").innerText = blog.title;
+      document.getElementById("blog-content").innerHTML = blog.content;
+
+      // Close button functionality
+      document.getElementById("close-btn").addEventListener("click", () => {
+        window.location.href = "displayblog.html"; // Go back to the blog list
+      });
+
+      // Delete button functionality
+      document.getElementById("delete-btn").addEventListener("click", () => {
+        if (confirm("Are you sure you want to delete this blog?")) {
+          const blogs = JSON.parse(localStorage.getItem("blogs")) || [];
+          // Find the blog by its title or content
+          const blogIndex = blogs.findIndex(b => b.title === blog.title && b.content === blog.content);
+
+          if (blogIndex !== -1) {
+            // Remove the blog from the array
+            blogs.splice(blogIndex, 1);
+            // Save the updated array back to localStorage
+            localStorage.setItem("blogs", JSON.stringify(blogs));
+          }
+
+          // Remove the current blog from localStorage
+          localStorage.removeItem("currentBlog");
+
+          alert("Blog deleted successfully!");
+          window.location.href = "displayblog.html"; // Redirect back to the blog list
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlogToday</title>
+  <link rel="stylesheet" href="displayblog.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Header Section with Back Button -->
+  <header>
+    <a href="Dashboard.html" class="back-btn"><i class="ri-arrow-left-line"></i></a>
+    <h1>Blog Today</h1>
+    <div></div> <!-- Empty div for spacing (if necessary) -->
+</header>
+  <div class="container">
+    <h1 class="header">Your Blogs</h1>
+    <div id="blog-container" class="blog-container">
+      <!-- If no blogs exist, show message -->
+      <p id="no-blogs-message">No blogs created yet. Click the button below to create one!</p>
+    </div>
+    <button id="create-blog-button" class="create-blog-button">+</button>
+  </div>
+  <script src="displayblog.js"></script>
+</body>
+</html>
